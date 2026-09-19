@@ -5,7 +5,7 @@ export const site = {
   base: '/Personal-Website-ShanglinYuan',
   url: 'https://ysl6323.github.io',
   nameEn: 'Shanglin Yuan',
-  nameZh: '袁尚林',
+  nameZh: '袁上林',
   titleEn: 'M.S. Student · HUST Vision Lab',
   titleZh: '在读硕士 · 华中科技大学 HUST Vision Lab',
   affiliationEn:

@@ -27,11 +27,57 @@ export interface Bilingual {
   zh: string;
 }
 
-export const interests: Bilingual[] = [
-  { en: 'Embodied AI', zh: '具身智能' },
-  { en: 'Vision-Language-Action Models', zh: '视觉-语言-动作模型' },
-  { en: 'World Action Models', zh: '世界动作模型' },
-  { en: 'Image / Video Generation', zh: '图像 / 视频生成' },
+export interface ResearchItem {
+  term: string;
+  intro: Bilingual;
+  future?: boolean;
+}
+
+export interface ResearchArea {
+  title: Bilingual;
+  items: ResearchItem[];
+}
+
+export const researchAreas: ResearchArea[] = [
+  {
+    title: { en: 'Embodied AI', zh: '具身智能' },
+    items: [
+      {
+        term: 'VLA',
+        intro: {
+          en: 'Vision-language-action models that map visual perception and language instructions to robot actions.',
+          zh: '视觉-语言-动作模型：将视觉感知与语言指令映射为机器人动作。',
+        },
+      },
+      {
+        term: 'WAM',
+        intro: {
+          en: 'World action models that learn action-relevant world dynamics for robot manipulation.',
+          zh: '世界动作模型：学习与动作相关的世界动态，用于机器人操作。',
+        },
+      },
+      {
+        term: 'Embodied RSI',
+        intro: {
+          en: 'Recursive self-improvement for embodied agents — robots that iteratively improve their own skills through self-generated data.',
+          zh: '具身递归自我提升：让机器人通过自身数据循环迭代提升技能与能力。',
+        },
+        future: true,
+      },
+    ],
+  },
+  {
+    title: { en: 'Image / Video Generation', zh: '图像 / 视频生成' },
+    items: [
+      {
+        term: 'Efficient On-device I2V / T2I / T2V',
+        intro: {
+          en: 'Efficient on-device deployment of image/video generation models, covering DC-AE, time-step distillation, and other efficiency strategies.',
+          zh: '高效的端侧部署图像/视频生成模型（I2V/T2I/T2V），技术路线覆盖 DC-AE、时间步数蒸馏等高效策略。',
+        },
+      },
+    ],
+  },
 ];
 
 export interface Advisor extends Bilingual {
@@ -132,10 +178,18 @@ export const news: NewsItem[] = [
       zh: '进入华中科技大学 HUST Vision Lab 攻读硕士。',
     },
   },
+  {
+    date: '2025.08',
+    text: {
+      en: 'Joined D-Robotics (a Horizon Robotics subsidiary) as an algorithm development intern.',
+      zh: '加入地平线旗下地瓜机器人（D-Robotics），从事算法开发实习生工作。',
+    },
+  },
 ];
 
 export interface ResearchProject {
   name: string;
+  org: string;
   start: string; // 'YYYY-MM'
   end: string; // 'YYYY-MM'
   period: string;
@@ -144,9 +198,9 @@ export interface ResearchProject {
 }
 
 export const researchTimeline: ResearchProject[] = [
-  { name: 'MobileI2V', start: '2024-09', end: '2025-07', period: '2024.09 — 2025.07', note: { en: 'Undergraduate research', zh: '本科科研' } },
-  { name: 'MotionVLA', start: '2025-08', end: '2026-01', period: '2025.08 — 2026.01', note: { en: 'First-author paper', zh: '第一作者' }, link: 'https://hustvl.github.io/MotionVLA/' },
-  { name: 'DreamWAM', start: '2026-03', end: '2026-08', period: '2026.03 — 2026.08', note: { en: 'First-author paper', zh: '第一作者' }, link: 'https://hustvl.github.io/DreamWAM/' },
+  { name: 'MobileI2V', org: 'HUST', start: '2024-09', end: '2025-07', period: '2024.09 — 2025.07', note: { en: 'Undergraduate research', zh: '本科科研' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u5HHmVD_uO8C' },
+  { name: 'MotionVLA', org: 'D-Robotics', start: '2025-08', end: '2026-01', period: '2025.08 — 2026.01', note: { en: 'First-author paper', zh: '第一作者' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u-x6o8ySG0sC' },
+  { name: 'DreamWAM', org: 'D-Robotics', start: '2026-03', end: '2026-08', period: '2026.03 — 2026.08', note: { en: 'First-author paper', zh: '第一作者' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:d1gkVwhDpl0C' },
 ];
 
 export interface NoteCategory {

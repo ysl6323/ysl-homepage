@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
-import { site, bio, interests, advisors, education, socials } from '../config';
+import ResearchAreas from '../components/ResearchAreas.astro';
+import { site, bio, advisors, education, socials } from '../config';
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -72,14 +73,8 @@ const base = import.meta.env.BASE_URL;
     <h2 class="mt-14 font-serif text-2xl font-semibold">
       <span class="en">Research Interests</span><span class="zh">研究方向</span>
     </h2>
-    <div class="mt-4 flex flex-wrap gap-2">
-      {
-        interests.map((it) => (
-          <span class="rounded-full border border-line bg-white/50 px-4 py-1.5 text-sm text-ink-soft">
-            <span class="en">{it.en}</span><span class="zh">{it.zh}</span>
-          </span>
-        ))
-      }
+    <div class="mt-4">
+      <ResearchAreas />
     </div>
 
     <!-- Education -->

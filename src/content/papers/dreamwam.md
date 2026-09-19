@@ -21,7 +21,6 @@ teaser: images/papers/dreamwam.png
 tags:
   - World Action Model
   - Embodied AI
-  - VLA
 order: 1
 abstract: |
   World Action Models (WAMs) learn action-relevant representations by predicting

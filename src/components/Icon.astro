@@ -53,6 +53,13 @@ const { name, size = 18, class: cls = '' } = Astro.props;
   )
 }
 {
+  name === 'dblp' && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" class={cls} aria-hidden="true">
+      <text x="12" y="16" text-anchor="middle" font-size="10" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">dblp</text>
+    </svg>
+  )
+}
+{
   name === 'external' && (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class={cls} aria-hidden="true">
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />

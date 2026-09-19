@@ -4,6 +4,7 @@
 export const site = {
   base: '/Personal-Website-ShanglinYuan',
   url: 'https://ysl6323.github.io',
+  labUrl: 'https://hustvl.github.io/',
   nameEn: 'Shanglin Yuan',
   nameZh: '袁上林',
   titleEn: 'M.S. Student · HUST Vision Lab',
@@ -12,11 +13,13 @@ export const site = {
     'School of Electronic Information and Communications, Huazhong University of Science and Technology',
   affiliationZh: '华中科技大学 电子信息与通信学院',
   email: 'yuanshanglin2003@gmail.com',
+  mottoEn: 'The best time to plant a tree was twenty years ago. The second best time is now.',
+  mottoZh: '种一棵树最好的时间是二十年前，其次是现在。',
 };
 
 export const bio = {
-  en: 'I am a Master’s student at HUST Vision Lab, Huazhong University of Science and Technology, advised by Prof. Xinggang Wang and Prof. Wenyu Liu. My research lies in Embodied AI and Image/Video Generation, with a focus on vision-language-action (VLA) models and world action models for robot manipulation. I am also a research intern at D-Robotics (Horizon Robotics).',
-  zh: '我是华中科技大学电子信息与通信学院 HUST Vision Lab 的在读硕士，师从王兴刚教授和刘文予教授。研究方向为具身智能（Embodied AI）与图像/视频生成，重点关注用于机器人操作的视觉-语言-动作（VLA）模型与世界动作模型。目前同时在地平线旗下地瓜机器人（D-Robotics）担任研究实习生。',
+  en: 'I am a Master’s student at HUST Vision Lab, Huazhong University of Science and Technology, advised by Prof. Xinggang Wang and Prof. Wenyu Liu. My research lies in Embodied AI and Image/Video Generation, with a focus on vision-language-action (VLA) models and world action models for robot manipulation.',
+  zh: '我是华中科技大学电子信息与通信学院 HUST Vision Lab 的在读硕士，师从王兴刚教授和刘文予教授。研究方向为具身智能（Embodied AI）与图像/视频生成，重点关注用于机器人操作的视觉-语言-动作（VLA）模型与世界动作模型。',
 };
 
 export interface Bilingual {
@@ -31,9 +34,13 @@ export const interests: Bilingual[] = [
   { en: 'Image / Video Generation', zh: '图像 / 视频生成' },
 ];
 
-export const advisors: Bilingual[] = [
-  { en: 'Prof. Xinggang Wang', zh: '王兴刚 教授' },
-  { en: 'Prof. Wenyu Liu', zh: '刘文予 教授' },
+export interface Advisor extends Bilingual {
+  url: string;
+}
+
+export const advisors: Advisor[] = [
+  { en: 'Prof. Xinggang Wang', zh: '王兴刚 教授', url: 'https://xwcv.github.io/' },
+  { en: 'Prof. Wenyu Liu', zh: '刘文予 教授', url: 'https://eic.hust.edu.cn/professor/liuwenyu/' },
 ];
 
 export interface SocialLink {
@@ -58,7 +65,7 @@ export const socials: SocialLink[] = [
     href: 'https://www.linkedin.com/in/your-handle', // TODO: replace with your real URL, then set enabled: true
     enabled: false,
   },
-  { key: 'huggingface', label: 'Hugging Face', href: 'https://huggingface.co/hustvl', enabled: true },
+  { key: 'dblp', label: 'DBLP', href: 'https://dblp.org/', enabled: false }, // TODO: 填你的 DBLP 主页 URL 后把 enabled 改成 true
   { key: 'x', label: 'X (Twitter)', href: 'https://x.com/', enabled: false },
 ];
 
@@ -96,17 +103,7 @@ export const education: TimelineItem[] = [
   },
 ];
 
-export const experience: TimelineItem[] = [
-  {
-    period: '2025.08 — Present',
-    title: { en: 'Research Intern', zh: '研究实习生' },
-    org: { en: 'D-Robotics · Horizon Robotics', zh: '地瓜机器人 · 地平线' },
-    note: {
-      en: 'Embodied AI — vision-language-action models & world action models',
-      zh: '具身智能 — 视觉-语言-动作模型与世界动作模型',
-    },
-  },
-];
+export const experience: TimelineItem[] = [];
 
 export interface NewsItem {
   date: string;
@@ -135,13 +132,21 @@ export const news: NewsItem[] = [
       zh: '进入华中科技大学 HUST Vision Lab 攻读硕士。',
     },
   },
-  {
-    date: '2025.08',
-    text: {
-      en: 'Joined D-Robotics (Horizon Robotics) as a research intern.',
-      zh: '加入地瓜机器人（地平线）担任研究实习生。',
-    },
-  },
+];
+
+export interface ResearchProject {
+  name: string;
+  start: string; // 'YYYY-MM'
+  end: string; // 'YYYY-MM'
+  period: string;
+  note: Bilingual;
+  link?: string;
+}
+
+export const researchTimeline: ResearchProject[] = [
+  { name: 'MobileI2V', start: '2024-09', end: '2025-07', period: '2024.09 — 2025.07', note: { en: 'Undergraduate research', zh: '本科科研' } },
+  { name: 'MotionVLA', start: '2025-08', end: '2026-01', period: '2025.08 — 2026.01', note: { en: 'First-author paper', zh: '第一作者' }, link: 'https://hustvl.github.io/MotionVLA/' },
+  { name: 'DreamWAM', start: '2026-03', end: '2026-08', period: '2026.03 — 2026.08', note: { en: 'First-author paper', zh: '第一作者' }, link: 'https://hustvl.github.io/DreamWAM/' },
 ];
 
 export interface NoteCategory {

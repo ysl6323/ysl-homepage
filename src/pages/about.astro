@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
-import { site, bio, interests, advisors, education, experience, socials } from '../config';
+import { site, bio, interests, advisors, education, socials } from '../config';
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -21,6 +21,8 @@ const base = import.meta.env.BASE_URL;
         </h1>
         <p class="mt-1 text-ink-soft">
           <span class="en">{site.affiliationEn}</span><span class="zh">{site.affiliationZh}</span>
+          <span class="text-ink-faint"> · </span>
+          <a href={site.labUrl} target="_blank" rel="noopener noreferrer" class="font-medium text-blue-deep hover:underline">HUST Vision Lab</a>
         </p>
         <p class="mt-4 leading-relaxed text-ink-soft">
           <span class="en">{bio.en}</span><span class="zh">{bio.zh}</span>
@@ -31,8 +33,18 @@ const base = import.meta.env.BASE_URL;
             <span class="en">Advisors: </span><span class="zh">导师：</span>
           </span>
           <span class="font-medium text-ink">
-            {advisors.map((a) => <span class="en">{a.en}</span>)}
-            {advisors.map((a) => <span class="zh">{a.zh}</span>)}
+            {advisors.map((a, i) => (
+              <span class="en">
+                {i > 0 && ', '}
+                <a href={a.url} target="_blank" rel="noopener noreferrer" class="underline decoration-line underline-offset-2 hover:text-blue-deep">{a.en}</a>
+              </span>
+            ))}
+            {advisors.map((a, i) => (
+              <span class="zh">
+                {i > 0 && '、'}
+                <a href={a.url} target="_blank" rel="noopener noreferrer" class="underline decoration-line underline-offset-2 hover:text-blue-deep">{a.zh}</a>
+              </span>
+            ))}
           </span>
         </div>
 
@@ -66,32 +78,6 @@ const base = import.meta.env.BASE_URL;
           <span class="rounded-full border border-line bg-white/50 px-4 py-1.5 text-sm text-ink-soft">
             <span class="en">{it.en}</span><span class="zh">{it.zh}</span>
           </span>
-        ))
-      }
-    </div>
-
-    <!-- Experience -->
-    <h2 class="mt-14 font-serif text-2xl font-semibold">
-      <span class="en">Experience</span><span class="zh">工作经历</span>
-    </h2>
-    <div class="mt-5 space-y-4">
-      {
-        experience.map((item) => (
-          <div class="rounded-2xl border border-line bg-white/50 p-5">
-            <div class="flex flex-wrap items-baseline justify-between gap-2">
-              <p class="font-medium">
-                <span class="en">{item.title.en}</span><span class="zh">{item.title.zh}</span>
-                <span class="text-ink-soft"> · </span>
-                <span class="en">{item.org.en}</span><span class="zh">{item.org.zh}</span>
-              </p>
-              <span class="font-mono text-xs text-ink-faint">{item.period}</span>
-            </div>
-            {item.note && (
-              <p class="mt-1 text-sm text-ink-faint">
-                <span class="en">{item.note.en}</span><span class="zh">{item.note.zh}</span>
-              </p>
-            )}
-          </div>
         ))
       }
     </div>

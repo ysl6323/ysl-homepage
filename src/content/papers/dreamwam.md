@@ -17,7 +17,7 @@ arxiv: https://arxiv.org/abs/2608.04996
 code: https://github.com/hustvl/DreamWAM
 project: https://hustvl.github.io/DreamWAM/
 hf: https://huggingface.co/hustvl/DreamWAM
-teaser: images/papers/dreamwam-teaser.png
+teaser: images/papers/dreamwam.png
 tags:
   - World Action Model
   - Embodied AI

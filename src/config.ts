@@ -72,7 +72,7 @@ export interface TimelineItem {
 export const education: TimelineItem[] = [
   {
     period: '2025.09 — Present',
-    title: { en: 'M.S. in Electronic Information and Communications', zh: '电子信息与通信 · 硕士' },
+    title: { en: 'M.S. in Artificial Intelligence', zh: '人工智能 · 硕士' },
     org: {
       en: 'Huazhong University of Science and Technology',
       zh: '华中科技大学 电子信息与通信学院',
@@ -84,7 +84,7 @@ export const education: TimelineItem[] = [
   },
   {
     period: '2021.09 — 2025.06',
-    title: { en: 'B.Eng. in Electronic Information and Communications', zh: '电子信息与通信 · 本科' },
+    title: { en: 'B.Eng. in Electronic Information Engineering', zh: '电子信息工程 · 本科' },
     org: {
       en: 'Huazhong University of Science and Technology',
       zh: '华中科技大学 电子信息与通信学院',

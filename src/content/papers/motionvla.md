@@ -12,6 +12,7 @@ highlight: Shanglin Yuan
 venue: arXiv preprint
 year: 2026
 arxiv: https://arxiv.org/abs/2606.08288
+code: https://github.com/hustvl/MotionVLA.git
 teaser: images/papers/motionvla-teaser.png
 tags:
   - Vision-Language-Action

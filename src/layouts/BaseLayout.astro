@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../config';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} · ${site.nameEn}` : `${site.nameEn} — ${site.titleEn}`;
+const desc =
+  description ??
+  'Personal website of Shanglin Yuan — M.S. student at HUST Vision Lab. Research on Embodied AI and Image/Video Generation.';
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      // Set language before first paint to avoid a flash of the wrong language.
+      try {
+        const saved = localStorage.getItem('lang');
+        const lang = saved || ((navigator.language || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en');
+        document.documentElement.dataset.lang = lang;
+        document.documentElement.lang = lang;
+      } catch (e) {}
+    </script>
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Nav />
+    <main class="flex-1"><slot /></main>
+    <Footer />
+  </body>
+</html>

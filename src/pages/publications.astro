@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PaperCard from '../components/PaperCard.astro';
+import { getCollection } from 'astro:content';
+
+const papers = (await getCollection('papers')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Publications">
+  <section class="mx-auto max-w-5xl px-5 py-14">
+    <h1 class="font-serif text-3xl font-bold tracking-tight">
+      <span class="en">Publications</span><span class="zh">论文</span>
+    </h1>
+    <p class="mt-3 max-w-2xl text-ink-soft">
+      <span class="en">First-author papers are marked in bold.</span>
+      <span class="zh">加粗为第一作者论文。</span>
+    </p>
+
+    <div class="mt-10 grid gap-8">
+      {papers.map((p) => <PaperCard paper={p} />)}
+    </div>
+  </section>
+</BaseLayout>

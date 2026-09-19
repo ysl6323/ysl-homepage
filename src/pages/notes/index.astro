@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { noteCategories } from '../../config';
+
+const base = import.meta.env.BASE_URL;
+const notes = (await getCollection('notes')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const fmtDate = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<BaseLayout title="Notes">
+  <section class="mx-auto max-w-5xl px-5 py-14">
+    <h1 class="font-serif text-3xl font-bold tracking-tight">
+      <span class="en">Notes & Records</span><span class="zh">随手记录</span>
+    </h1>
+    <p class="mt-3 max-w-2xl text-ink-soft">
+      <span class="en">Study notes, field radar and life logs — written as they come.</span>
+      <span class="zh">学习笔记、前沿调研与生活随笔，随手记录。</span>
+    </p>
+
+    <div class="mt-10 grid gap-10">
+      {
+        noteCategories.map((cat) => {
+          const items = notes.filter((n) => n.data.category === cat.id);
+          return (
+            <div>
+              <div class="mb-4 flex items-center gap-3 border-b border-line/70 pb-3">
+                <span class="text-2xl">{cat.icon}</span>
+                <div>
+                  <h2 class="font-serif text-xl font-semibold">
+                    <span class="en">{cat.label.en}</span><span class="zh">{cat.label.zh}</span>
+                  </h2>
+                  <p class="text-xs text-ink-faint">
+                    <span class="en">{cat.blurb.en}</span><span class="zh">{cat.blurb.zh}</span>
+                  </p>
+                </div>
+                <span class="ml-auto rounded-full bg-bg-soft px-2.5 py-1 text-xs text-ink-faint">
+                  {items.length}
+                </span>
+              </div>
+
+              {
+                items.length === 0 ? (
+                  <p class="text-sm text-ink-faint">
+                    <span class="en">Nothing here yet.</span><span class="zh">暂无内容。</span>
+                  </p>
+                ) : (
+                  <div class="space-y-3">
+                    {
+                      items.map((n) => (
+                        <a
+                          href={`${base}/notes/${n.id}`}
+                          class="group flex items-baseline gap-4 rounded-xl border border-line bg-white/50 px-4 py-3 transition-colors hover:border-blue/60"
+                        >
+                          <span class="shrink-0 font-mono text-xs text-ink-faint">{fmtDate(n.data.date)}</span>
+                          <div class="min-w-0 flex-1">
+                            <p class="truncate font-medium group-hover:text-blue-deep">{n.data.title}</p>
+                            {n.data.summary && <p class="truncate text-sm text-ink-faint">{n.data.summary}</p>}
+                          </div>
+                          {n.data.tags.map((t: string) => (
+                            <span class="hidden shrink-0 rounded-full border border-line px-2 py-0.5 text-xs text-ink-faint sm:inline">
+                              {t}
+                            </span>
+                          ))}
+                        </a>
+                      ))
+                    }
+                  </div>
+                )
+              }
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
+</BaseLayout>

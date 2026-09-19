@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Giscus from '../../components/Giscus.astro';
+import { getCollection, render } from 'astro:content';
+import { noteCategories } from '../../config';
+
+const base = import.meta.env.BASE_URL;
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((n) => ({ params: { slug: n.id }, props: { note: n } }));
+}
+
+const { note } = Astro.props;
+const cat = noteCategories.find((c) => c.id === note.data.category)!;
+const { Content } = await render(note);
+const fmtDate = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<BaseLayout title={note.data.title} description={note.data.summary}>
+  <article class="mx-auto max-w-3xl px-5 py-14">
+    <a href={`${base}/notes`} class="text-sm font-medium text-blue-deep hover:underline">
+      ← <span class="en">All notes</span><span class="zh">返回随笔</span>
+    </a>
+
+    <div class="mt-6 flex flex-wrap items-center gap-3">
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-bg-soft px-3 py-1 text-xs font-medium text-ink-soft">
+        {cat.icon}
+        <span class="en">{cat.label.en}</span><span class="zh">{cat.label.zh}</span>
+      </span>
+      {note.data.tags.map((t: string) => (
+        <span class="rounded-full border border-line px-3 py-1 text-xs text-ink-faint">{t}</span>
+      ))}
+    </div>
+
+    <h1 class="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight">{note.data.title}</h1>
+    <p class="mt-2 font-mono text-sm text-ink-faint">{fmtDate(note.data.date)}</p>
+
+    <div class="prose-note mt-8 text-[15px]">
+      <Content />
+    </div>
+
+    <Giscus />
+  </article>
+</BaseLayout>

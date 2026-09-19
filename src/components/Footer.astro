@@ -1,0 +1,31 @@
+---
+import Icon from './Icon.astro';
+import { site, socials } from '../config';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line/70 bg-bg-soft/50">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-5 py-10">
+    <div class="flex items-center gap-3">
+      {
+        socials
+          .filter((s) => s.enabled)
+          .map((s) => (
+            <a
+              href={s.href}
+              target={s.href.startsWith('http') ? '_blank' : undefined}
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              title={s.label}
+              class="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-bg text-ink-soft transition-colors hover:border-blue hover:text-blue-deep"
+            >
+              <Icon name={s.key} size={17} />
+            </a>
+          ))
+      }
+    </div>
+    <p class="text-center text-xs text-ink-faint">
+      © {year} {site.nameEn} · {site.nameZh} · Built with Astro
+    </p>
+  </div>
+</footer>

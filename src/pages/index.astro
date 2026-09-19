@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import PaperCard from '../components/PaperCard.astro';
+import { getCollection } from 'astro:content';
+import {
+  site,
+  bio,
+  interests,
+  advisors,
+  socials,
+  news,
+  education,
+  experience,
+  noteCategories,
+} from '../config';
+
+const base = import.meta.env.BASE_URL;
+
+const papers = (await getCollection('papers')).sort((a, b) => a.data.order - b.data.order);
+const latestNotes = (await getCollection('notes'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+const fmtDate = (d: Date) => d.toISOString().slice(0, 10);
+const catOf = (id: string) => noteCategories.find((c) => c.id === id)!;
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="gradient-accent border-b border-line/60">
+    <div class="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 md:grid-cols-[1fr_auto] md:py-20">
+      <div>
+        <p class="mb-3 inline-flex items-center gap-2 rounded-full border border-line bg-white/50 px-3 py-1 text-xs font-medium text-ink-soft">
+          <span class="h-1.5 w-1.5 rounded-full bg-sage-deep"></span>
+          <span class="en">{site.titleEn}</span><span class="zh">{site.titleZh}</span>
+        </p>
+        <h1 class="font-serif text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+          <span class="en">{site.nameEn}</span><span class="zh">{site.nameZh}</span>
+        </h1>
+        <p class="mt-2 text-sm text-ink-soft">
+          <span class="en">{site.affiliationEn}</span><span class="zh">{site.affiliationZh}</span>
+        </p>
+
+        <p class="mt-5 max-w-xl leading-relaxed text-ink-soft">
+          <span class="en">{bio.en}</span><span class="zh">{bio.zh}</span>
+        </p>
+
+        <div class="mt-3 text-sm">
+          <span class="text-ink-faint">
+            <span class="en">Advisors: </span><span class="zh">导师：</span>
+          </span>
+          <span class="font-medium text-ink">
+            {advisors.map((a) => <span class="en">{a.en}</span>)}
+            {advisors.map((a) => <span class="zh">{a.zh}</span>)}
+          </span>
+        </div>
+
+        <div class="mt-6 flex flex-wrap items-center gap-2.5">
+          {
+            socials
+              .filter((s) => s.enabled)
+              .map((s) => (
+                <a
+                  href={s.href}
+                  target={s.href.startsWith('http') ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  title={s.label}
+                  class="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white/60 text-ink-soft transition-colors hover:border-blue hover:text-blue-deep"
+                >
+                  <Icon name={s.key} size={18} />
+                </a>
+              ))
+          }
+          <a
+            href={`${base}/about`}
+            class="inline-flex items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-sm font-medium text-bg transition-colors hover:bg-blue-deep"
+          >
+            <span class="en">More about me</span><span class="zh">了解更多</span>
+            <Icon name="arrow" size={15} />
+          </a>
+        </div>
+      </div>
+
+      <div class="mx-auto">
+        <div class="rounded-2xl border border-line bg-white/60 p-2 shadow-sm">
+          <img
+            src={`${base}/images/avatar.jpg`}
+            alt={site.nameEn}
+            class="h-56 w-44 rounded-xl object-cover object-top"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research interests -->
+  <section class="mx-auto max-w-5xl px-5 py-12">
+    <h2 class="font-serif text-2xl font-semibold">
+      <span class="en">Research Interests</span><span class="zh">研究方向</span>
+    </h2>
+    <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        interests.map((it) => (
+          <div class="rounded-2xl border border-line bg-white/50 p-5 transition-colors hover:border-blue/60">
+            <p class="font-medium">
+              <span class="en">{it.en}</span><span class="zh">{it.zh}</span>
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="mx-auto max-w-5xl px-5 pb-12">
+    <h2 class="font-serif text-2xl font-semibold">
+      <span class="en">News</span><span class="zh">动态</span>
+    </h2>
+    <ul class="mt-5 space-y-3">
+      {
+        news.map((n) => (
+          <li class="flex items-baseline gap-4">
+            <span class="shrink-0 font-mono text-xs font-medium text-rust">{n.date}</span>
+            <span class="text-ink-soft">
+              <span class="en">{n.text.en}</span><span class="zh">{n.text.zh}</span>
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- Selected publications -->
+  <section class="mx-auto max-w-5xl px-5 pb-12">
+    <div class="mb-6 flex items-end justify-between">
+      <h2 class="font-serif text-2xl font-semibold">
+        <span class="en">Selected Publications</span><span class="zh">代表论文</span>
+      </h2>
+      <a href={`${base}/publications`} class="text-sm font-medium text-blue-deep hover:underline">
+        <span class="en">All publications →</span><span class="zh">全部论文 →</span>
+      </a>
+    </div>
+    <div class="grid gap-6">
+      {papers.map((p) => <PaperCard paper={p} compact />)}
+    </div>
+  </section>
+
+  <!-- Education & Experience -->
+  <section class="mx-auto max-w-5xl px-5 pb-12">
+    <div class="mb-6 flex items-end justify-between">
+      <h2 class="font-serif text-2xl font-semibold">
+        <span class="en">Education & Experience</span><span class="zh">教育与经历</span>
+      </h2>
+      <a href={`${base}/about`} class="text-sm font-medium text-blue-deep hover:underline">
+        <span class="en">Full bio →</span><span class="zh">完整履历 →</span>
+      </a>
+    </div>
+    <div class="space-y-4">
+      {[...education, ...experience].map((item) => (
+        <div class="flex flex-col gap-1 rounded-2xl border border-line bg-white/50 p-5 sm:flex-row sm:items-center sm:gap-6">
+          <span class="shrink-0 font-mono text-xs font-medium text-ink-faint sm:w-40">{item.period}</span>
+          <div>
+            <p class="font-medium">
+              <span class="en">{item.title.en}</span><span class="zh">{item.title.zh}</span>
+            </p>
+            <p class="text-sm text-ink-soft">
+              <span class="en">{item.org.en}</span><span class="zh">{item.org.zh}</span>
+            </p>
+            {
+              item.note && (
+                <p class="text-sm text-ink-faint">
+                  <span class="en">{item.note.en}</span><span class="zh">{item.note.zh}</span>
+                </p>
+              )
+            }
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Latest notes -->
+  <section class="mx-auto max-w-5xl px-5 pb-20">
+    <div class="mb-6 flex items-end justify-between">
+      <h2 class="font-serif text-2xl font-semibold">
+        <span class="en">Recent Notes</span><span class="zh">最新随笔</span>
+      </h2>
+      <a href={`${base}/notes`} class="text-sm font-medium text-blue-deep hover:underline">
+        <span class="en">All notes →</span><span class="zh">全部随笔 →</span>
+      </a>
+    </div>
+    <div class="grid gap-4">
+      {
+        latestNotes.map((n) => {
+          const c = catOf(n.data.category);
+          return (
+            <a
+              href={`${base}/notes/${n.id}`}
+              class="group flex items-center gap-4 rounded-2xl border border-line bg-white/50 p-5 transition-colors hover:border-blue/60"
+            >
+              <span class="text-2xl">{c.icon}</span>
+              <div class="min-w-0 flex-1">
+                <p class="truncate font-medium group-hover:text-blue-deep">{n.data.title}</p>
+                {n.data.summary && <p class="truncate text-sm text-ink-faint">{n.data.summary}</p>}
+              </div>
+              <div class="shrink-0 text-right">
+                <span class="block rounded-full bg-bg-soft px-2.5 py-1 text-xs text-ink-soft">
+                  <span class="en">{c.label.en}</span><span class="zh">{c.label.zh}</span>
+                </span>
+                <span class="mt-1 block font-mono text-xs text-ink-faint">{fmtDate(n.data.date)}</span>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </section>
+</BaseLayout>

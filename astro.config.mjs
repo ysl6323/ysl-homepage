@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,6 +10,7 @@ export default defineConfig({
   // custom domain or rename the repo to ysl6323.github.io.
   base: '/Personal-Website-ShanglinYuan',
   trailingSlash: 'ignore',
+  integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },

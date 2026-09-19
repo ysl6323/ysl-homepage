@@ -55,8 +55,8 @@ export const socials: SocialLink[] = [
   {
     key: 'linkedin',
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/shanglin-yuan',
-    enabled: true,
+    href: 'https://www.linkedin.com/in/your-handle', // TODO: replace with your real URL, then set enabled: true
+    enabled: false,
   },
   { key: 'huggingface', label: 'Hugging Face', href: 'https://huggingface.co/hustvl', enabled: true },
   { key: 'x', label: 'X (Twitter)', href: 'https://x.com/', enabled: false },

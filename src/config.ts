@@ -189,7 +189,6 @@ export const news: NewsItem[] = [
 
 export interface ResearchProject {
   name: string;
-  org: string;
   start: string; // 'YYYY-MM'
   end: string; // 'YYYY-MM'
   period: string;
@@ -198,9 +197,9 @@ export interface ResearchProject {
 }
 
 export const researchTimeline: ResearchProject[] = [
-  { name: 'MobileI2V', org: 'HUST', start: '2024-09', end: '2025-07', period: '2024.09 — 2025.07', note: { en: 'Undergraduate research', zh: '本科科研' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u5HHmVD_uO8C' },
-  { name: 'MotionVLA', org: 'D-Robotics', start: '2025-08', end: '2026-01', period: '2025.08 — 2026.01', note: { en: 'First-author paper', zh: '第一作者' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u-x6o8ySG0sC' },
-  { name: 'DreamWAM', org: 'D-Robotics', start: '2026-03', end: '2026-08', period: '2026.03 — 2026.08', note: { en: 'First-author paper', zh: '第一作者' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:d1gkVwhDpl0C' },
+  { name: 'MobileI2V', start: '2024-09', end: '2025-07', period: '2024.09 — 2025.07', note: { en: 'Undergraduate at HUST', zh: '本科 · 华中科技大学' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u5HHmVD_uO8C' },
+  { name: 'MotionVLA', start: '2025-08', end: '2026-01', period: '2025.08 — 2026.01', note: { en: 'First-author · D-Robotics intern', zh: '第一作者 · D-Robotics 实习' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u-x6o8ySG0sC' },
+  { name: 'DreamWAM', start: '2026-03', end: '2026-08', period: '2026.03 — 2026.08', note: { en: 'First-author · D-Robotics intern', zh: '第一作者 · D-Robotics 实习' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:d1gkVwhDpl0C' },
 ];
 
 export interface NoteCategory {

@@ -9,13 +9,15 @@ authors:
   - Wenyu Liu
   - Xinggang Wang
 highlight: Shanglin Yuan
-venue: arXiv preprint
+venue: CoRL 2026
 year: 2026
+venueUrl: https://www.corl.org/
 arxiv: https://arxiv.org/abs/2606.08288
 code: https://github.com/hustvl/MotionVLA.git
 project: https://hustvl.github.io/MotionVLA/
 teaser: images/papers/motionvla.webp
 tags:
+  - CoRL 2026
   - Vision-Language-Action
   - Robot Learning
   - Embodied AI

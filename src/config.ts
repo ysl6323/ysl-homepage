@@ -158,6 +158,13 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
   {
+    date: '2026.09',
+    text: {
+      en: 'MotionVLA is accepted to CoRL 2026.',
+      zh: 'MotionVLA 被 CoRL 2026 接收。',
+    },
+  },
+  {
     date: '2026.08',
     text: {
       en: 'DreamWAM is released on arXiv, with code and models publicly available.',

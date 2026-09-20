@@ -8,6 +8,7 @@ const papers = defineCollection({
     authors: z.array(z.string()),
     highlight: z.string().default('Shanglin Yuan'),
     venue: z.string(),
+    venueUrl: z.string().url().optional(),
     year: z.number(),
     arxiv: z.string().optional(),
     code: z.string().optional(),

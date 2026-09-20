@@ -45,7 +45,13 @@ const links = [
     </p>
 
     <div class="mt-3 flex flex-wrap items-center gap-2">
-      <span class="rounded-full bg-bg-soft px-2.5 py-1 text-xs font-medium text-ink-soft">{d.venue} · {d.year}</span>
+      {d.venueUrl ? (
+        <a href={d.venueUrl} target="_blank" rel="noopener noreferrer" class="rounded-full bg-bg-soft px-2.5 py-1 text-xs font-medium text-ink-soft transition-colors hover:text-blue-deep">
+          {d.venue} · {d.year}
+        </a>
+      ) : (
+        <span class="rounded-full bg-bg-soft px-2.5 py-1 text-xs font-medium text-ink-soft">{d.venue} · {d.year}</span>
+      )}
       {d.tags.map((t: string) => (
         <span class="rounded-full border border-line px-2.5 py-1 text-xs text-ink-faint">{t}</span>
       ))}

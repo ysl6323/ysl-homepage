@@ -217,7 +217,7 @@ export const researchTimeline: ResearchProject[] = [
     link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u-x6o8ySG0sC',
     logos: [
       { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST', href: 'https://www.hust.edu.cn/' },
-      { src: 'images/logos/d-robotics.png', alt: 'D-Robotics', href: 'https://developer.horizon.cc/' },
+      { src: 'images/logos/d-robotics.png', alt: 'D-Robotics', href: 'https://d-robotics.cc/home' },
     ],
   },
   {
@@ -226,7 +226,7 @@ export const researchTimeline: ResearchProject[] = [
     logos: [
       { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST', href: 'https://www.hust.edu.cn/' },
       { src: 'images/logos/horizon-icon.png', alt: 'Horizon Robotics', href: 'https://www.horizon.auto/' },
-      { src: 'images/logos/d-robotics.png', alt: 'D-Robotics', href: 'https://developer.horizon.cc/' },
+      { src: 'images/logos/d-robotics.png', alt: 'D-Robotics', href: 'https://d-robotics.cc/home' },
     ],
   },
 ];

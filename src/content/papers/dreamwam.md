@@ -11,6 +11,8 @@ authors:
   - Wei Sui
   - Xinggang Wang
 highlight: Shanglin Yuan
+coFirstAuthors:
+  - Weiheng Zhao
 venue: arXiv preprint
 year: 2026
 arxiv: https://arxiv.org/abs/2608.04996

@@ -19,7 +19,7 @@ export const site = {
 
 export const bio = {
   en: 'I am a Master’s student at HUST Vision Lab, Huazhong University of Science and Technology, advised by Prof. Xinggang Wang and Prof. Wenyu Liu. My research lies in Embodied AI and Image/Video Generation, with a focus on vision-language-action (VLA) models and world action models for robot manipulation.',
-  zh: '我是华中科技大学电子信息与通信学院 HUST Vision Lab 的在读硕士，师从王兴刚教授和刘文予教授。研究方向为具身智能（Embodied AI）与图像/视频生成，重点关注用于机器人操作的视觉-语言-动作（VLA）模型与世界动作模型。',
+  zh: '我是华中科技大学电子信息与通信学院 HUST Vision Lab 的在读硕士，师从王兴刚教授和刘文予教授。研究方向为具身智能（Embodied AI）与图像/视频生成，重点关注用于机器人操作的视觉-语言-动作（VLA）模型与世界动作模型（WAM）。',
 };
 
 export interface Bilingual {
@@ -199,14 +199,37 @@ export interface ResearchProject {
   start: string; // 'YYYY-MM'
   end: string; // 'YYYY-MM'
   period: string;
-  note: Bilingual;
   link?: string;
+  logos: { src: string; alt: string; href?: string }[];
 }
 
 export const researchTimeline: ResearchProject[] = [
-  { name: 'MobileI2V', start: '2024-09', end: '2025-07', period: '2024.09 — 2025.07', note: { en: 'Undergraduate at HUST', zh: '本科 · 华中科技大学' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u5HHmVD_uO8C' },
-  { name: 'MotionVLA', start: '2025-08', end: '2026-01', period: '2025.08 — 2026.01', note: { en: 'First-author · D-Robotics intern', zh: '第一作者 · D-Robotics 实习' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u-x6o8ySG0sC' },
-  { name: 'DreamWAM', start: '2026-03', end: '2026-08', period: '2026.03 — 2026.08', note: { en: 'First-author · D-Robotics intern', zh: '第一作者 · D-Robotics 实习' }, link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:d1gkVwhDpl0C' },
+  {
+    name: 'MobileI2V', start: '2024-09', end: '2025-07', period: '2024.09 — 2025.07',
+    link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u5HHmVD_uO8C',
+    logos: [
+      { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST' },
+      { src: 'https://cdn.simpleicons.org/huawei/FF0000', alt: 'Huawei' },
+    ],
+  },
+  {
+    name: 'MotionVLA', start: '2025-08', end: '2026-01', period: '2025.08 — 2026.01',
+    link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u-x6o8ySG0sC',
+    logos: [
+      { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST' },
+      { src: 'https://res.horizon.auto/Public/Uploads/uploadfile2/images/20260520/d1logo01-6175.svg', alt: 'Horizon Robotics' },
+      { src: 'https://github.com/HorizonRDK.png?size=128', alt: 'D-Robotics' },
+    ],
+  },
+  {
+    name: 'DreamWAM', start: '2026-03', end: '2026-08', period: '2026.03 — 2026.08',
+    link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:d1gkVwhDpl0C',
+    logos: [
+      { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST' },
+      { src: 'https://res.horizon.auto/Public/Uploads/uploadfile2/images/20260520/d1logo01-6175.svg', alt: 'Horizon Robotics' },
+      { src: 'https://github.com/HorizonRDK.png?size=128', alt: 'D-Robotics' },
+    ],
+  },
 ];
 
 export interface NoteCategory {

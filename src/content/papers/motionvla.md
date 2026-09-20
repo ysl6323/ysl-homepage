@@ -17,7 +17,6 @@ code: https://github.com/hustvl/MotionVLA.git
 project: https://hustvl.github.io/MotionVLA/
 teaser: images/papers/motionvla.webp
 tags:
-  - CoRL 2026
   - Vision-Language-Action
   - Robot Learning
   - Embodied AI

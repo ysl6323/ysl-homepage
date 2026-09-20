@@ -208,25 +208,25 @@ export const researchTimeline: ResearchProject[] = [
     name: 'MobileI2V', start: '2024-09', end: '2025-07', period: '2024.09 — 2025.07',
     link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u5HHmVD_uO8C',
     logos: [
-      { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST' },
-      { src: 'https://cdn.simpleicons.org/huawei/FF0000', alt: 'Huawei' },
+      { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST', href: 'https://www.hust.edu.cn/' },
+      { src: 'https://cdn.simpleicons.org/huawei/FF0000', alt: 'Huawei', href: 'https://www.huawei.com/' },
     ],
   },
   {
     name: 'MotionVLA', start: '2025-08', end: '2026-01', period: '2025.08 — 2026.01',
     link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u-x6o8ySG0sC',
     logos: [
-      { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST' },
-      { src: 'images/logos/d-robotics.png', alt: 'D-Robotics' },
+      { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST', href: 'https://www.hust.edu.cn/' },
+      { src: 'images/logos/d-robotics.png', alt: 'D-Robotics', href: 'https://developer.horizon.cc/' },
     ],
   },
   {
     name: 'DreamWAM', start: '2026-03', end: '2026-08', period: '2026.03 — 2026.08',
     link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:d1gkVwhDpl0C',
     logos: [
-      { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST' },
-      { src: 'images/logos/horizon-icon.png', alt: 'Horizon Robotics' },
-      { src: 'images/logos/d-robotics.png', alt: 'D-Robotics' },
+      { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST', href: 'https://www.hust.edu.cn/' },
+      { src: 'images/logos/horizon-icon.png', alt: 'Horizon Robotics', href: 'https://www.horizon.auto/' },
+      { src: 'images/logos/d-robotics.png', alt: 'D-Robotics', href: 'https://developer.horizon.cc/' },
     ],
   },
 ];

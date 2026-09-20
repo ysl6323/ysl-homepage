@@ -217,8 +217,7 @@ export const researchTimeline: ResearchProject[] = [
     link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:u-x6o8ySG0sC',
     logos: [
       { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST' },
-      { src: 'https://res.horizon.auto/Public/Uploads/uploadfile2/images/20260520/d1logo01-6175.svg', alt: 'Horizon Robotics' },
-      { src: 'https://github.com/HorizonRDK.png?size=128', alt: 'D-Robotics' },
+      { src: 'images/logos/d-robotics.png', alt: 'D-Robotics' },
     ],
   },
   {
@@ -226,8 +225,8 @@ export const researchTimeline: ResearchProject[] = [
     link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:d1gkVwhDpl0C',
     logos: [
       { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST' },
-      { src: 'https://res.horizon.auto/Public/Uploads/uploadfile2/images/20260520/d1logo01-6175.svg', alt: 'Horizon Robotics' },
-      { src: 'https://github.com/HorizonRDK.png?size=128', alt: 'D-Robotics' },
+      { src: 'images/logos/horizon.svg', alt: 'Horizon Robotics' },
+      { src: 'images/logos/d-robotics.png', alt: 'D-Robotics' },
     ],
   },
 ];

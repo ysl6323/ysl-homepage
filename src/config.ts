@@ -225,7 +225,7 @@ export const researchTimeline: ResearchProject[] = [
     link: 'https://scholar.google.com/citations?view_op=view_citation&hl=en&user=mHuyk9MAAAAJ&citation_for_view=mHuyk9MAAAAJ:d1gkVwhDpl0C',
     logos: [
       { src: 'https://upload.wikimedia.org/wikipedia/en/0/01/Huazhong_University_of_Science_and_Technology_logo.png', alt: 'HUST' },
-      { src: 'images/logos/horizon.svg', alt: 'Horizon Robotics' },
+      { src: 'images/logos/horizon-icon.png', alt: 'Horizon Robotics' },
       { src: 'images/logos/d-robotics.png', alt: 'D-Robotics' },
     ],
   },

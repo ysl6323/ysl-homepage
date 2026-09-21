@@ -9,11 +9,27 @@ interface Props {
   description?: string;
 }
 const { title, description } = Astro.props;
-const pageTitle = title ? `${title} · ${site.nameEn}` : `${site.nameEn} — ${site.titleEn}`;
+const nameBoth = `${site.nameEn} · ${site.nameZh}`;
+const pageTitle = title ? `${title} · ${nameBoth}` : `${nameBoth} — ${site.titleEn}`;
 const desc =
   description ??
-  'Personal website of Shanglin Yuan — M.S. student at HUST Vision Lab. Research on Embodied AI and Image/Video Generation.';
+  'Shanglin Yuan (袁上林) — M.S. student at HUST Vision Lab, Huazhong University of Science and Technology. Research on Embodied AI, vision-language-action (VLA) models, world action models, and image/video generation.';
 const base = import.meta.env.BASE_URL;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.nameEn,
+  alternateName: [site.nameZh, 'Shanglin'],
+  url: `${site.url}${base}/`,
+  email: `mailto:${site.email}`,
+  jobTitle: 'M.S. Student',
+  worksFor: { '@type': 'Organization', name: 'HUST Vision Lab, Huazhong University of Science and Technology' },
+  sameAs: [
+    'https://scholar.google.com.hk/citations?user=mHuyk9MAAAAJ&hl=en',
+    'https://github.com/ysl6323',
+  ],
+};
 ---
 
 <!doctype html>
@@ -33,6 +49,7 @@ const base = import.meta.env.BASE_URL;
     <meta name="twitter:description" content={desc} />
     <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
     <meta name="generator" content={Astro.generator} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <script is:inline>
       // Set language before first paint to avoid a flash of the wrong language.
       try {

@@ -2,7 +2,7 @@
 // Edit this file to update your profile, links, education, experience, etc.
 
 export const site = {
-  base: '/Personal-Website-ShanglinYuan',
+  base: '/ysl-homepage',
   url: 'https://ysl6323.github.io',
   labUrl: 'https://hustvl.github.io/',
   nameEn: 'Shanglin Yuan',

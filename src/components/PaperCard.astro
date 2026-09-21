@@ -9,7 +9,6 @@ const { paper, compact = false } = Astro.props;
 const d = paper.data;
 const base = import.meta.env.BASE_URL;
 const teaserSrc = d.teaser ? `${base}/${String(d.teaser).replace(/^\//, '')}` : null;
-const highlightedAuthors = [d.highlight, ...d.coFirstAuthors];
 const venueLabel = /\b\d{4}\b/.test(d.venue) ? d.venue : `${d.venue} · ${d.year}`;
 
 const links = [
@@ -40,11 +39,19 @@ const links = [
         d.authors.map((a: string, i: number) => (
           <span>
             {i > 0 && ', '}
-            {highlightedAuthors.includes(a) ? <b class="font-semibold text-ink">{a}</b> : a}
+            {a === d.highlight ? <b class="font-semibold text-ink">{a}</b> : a}
+            {d.coFirstAuthors.includes(a) && <sup class="text-blue-deep">*</sup>}
           </span>
         ))
       }
     </p>
+    {
+      d.coFirstAuthors.length > 0 && (
+        <p class="mt-1 text-xs text-ink-faint">
+          <span class="en">* Equal contribution.</span><span class="zh">* 共同第一作者。</span>
+        </p>
+      )
+    }
 
     <div class="mt-3 flex flex-wrap items-center gap-2">
       {d.venueUrl ? (

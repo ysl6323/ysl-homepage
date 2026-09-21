@@ -59,6 +59,45 @@ const jsonLd = {
         document.documentElement.lang = lang;
       } catch (e) {}
     </script>
+    <script is:inline>
+      // Copy email to clipboard and show a brief toast.
+      function copyFallback(text) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (err) {}
+        ta.remove();
+      }
+      function showCopyToast(msg) {
+        let t = document.getElementById('copy-toast');
+        if (!t) {
+          t = document.createElement('div');
+          t.id = 'copy-toast';
+          t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#2b2f34;color:#e8e6e1;padding:8px 16px;border-radius:9999px;font-size:13px;z-index:9999;opacity:0;transition:opacity .2s;pointer-events:none;';
+          document.body.appendChild(t);
+        }
+        t.textContent = msg;
+        t.style.opacity = '1';
+        clearTimeout(showCopyToast._t);
+        showCopyToast._t = setTimeout(() => { t.style.opacity = '0'; }, 2000);
+      }
+      document.addEventListener('click', async (e) => {
+        const el = e.target.closest('[data-copy-email]');
+        if (!el) return;
+        e.preventDefault();
+        const email = el.getAttribute('data-copy-email');
+        if (navigator.clipboard && window.isSecureContext) {
+          try { await navigator.clipboard.writeText(email); } catch (err) { copyFallback(email); }
+        } else {
+          copyFallback(email);
+        }
+        const zh = document.documentElement.dataset.lang === 'zh';
+        showCopyToast((zh ? '已复制邮箱：' : 'Email copied: ') + email);
+      });
+    </script>
   </head>
   <body class="flex min-h-screen flex-col">
     <Nav />

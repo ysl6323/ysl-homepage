@@ -13,6 +13,7 @@ const year = new Date().getFullYear();
           .map((s) => (
             <a
               href={s.href}
+              data-copy-email={s.key === 'email' ? site.email : undefined}
               target={s.href.startsWith('http') ? '_blank' : undefined}
               rel="noopener noreferrer"
               aria-label={s.label}

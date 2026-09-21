@@ -11,7 +11,7 @@ authors:
 highlight: Shanglin Yuan
 venue: CoRL 2026
 year: 2026
-venueUrl: https://www.corl.org/
+venueUrl: https://2026.corl.org/
 arxiv: https://arxiv.org/abs/2606.08288
 code: https://github.com/hustvl/MotionVLA.git
 project: https://hustvl.github.io/MotionVLA/

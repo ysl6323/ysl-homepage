@@ -12,6 +12,7 @@ authors:
   - Xinggang Wang
 highlight: Shanglin Yuan
 coFirstAuthors:
+  - Shanglin Yuan
   - Weiheng Zhao
 venue: arXiv preprint
 year: 2026

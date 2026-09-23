@@ -233,22 +233,25 @@ const tlTicks = [
     </div>
     <div class="space-y-4">
       {education.map((item) => (
-        <div class="flex flex-col gap-1 rounded-2xl border border-line bg-white/50 p-5 sm:flex-row sm:items-center sm:gap-6">
-          <span class="shrink-0 font-mono text-xs font-medium text-ink-faint sm:w-40">{item.period}</span>
-          <div>
-            <p class="font-medium">
-              <span class="en">{item.title.en}</span><span class="zh">{item.title.zh}</span>
-            </p>
-            <p class="text-sm text-ink-soft">
-              <span class="en">{item.org.en}</span><span class="zh">{item.org.zh}</span>
-            </p>
-            {
-              item.note && (
-                <p class="text-sm text-ink-faint">
-                  <span class="en">{item.note.en}</span><span class="zh">{item.note.zh}</span>
-                </p>
-              )
-            }
+        <div class="flex items-center gap-4 rounded-2xl border border-line bg-white/50 p-5">
+          <img src={`${base}/images/logos/hust.png`} alt="Huazhong University of Science and Technology logo" width="64" height="49" loading="lazy" class="h-16 w-16 shrink-0 object-contain" />
+          <div class="flex min-w-0 flex-1 flex-col gap-1 sm:flex-row sm:items-center sm:gap-6">
+            <span class="shrink-0 font-mono text-xs font-medium text-ink-faint sm:w-40">{item.period}</span>
+            <div class="min-w-0">
+              <p class="font-medium">
+                <span class="en">{item.title.en}</span><span class="zh">{item.title.zh}</span>
+              </p>
+              <p class="text-sm text-ink-soft">
+                <span class="en">{item.org.en}</span><span class="zh">{item.org.zh}</span>
+              </p>
+              {
+                item.note && (
+                  <p class="text-sm text-ink-faint">
+                    <span class="en">{item.note.en}</span><span class="zh">{item.note.zh}</span>
+                  </p>
+                )
+              }
+            </div>
           </div>
         </div>
       ))}

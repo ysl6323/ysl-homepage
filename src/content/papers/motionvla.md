@@ -34,13 +34,10 @@ abstract: |
   simulation benchmarks and early real-robot trials, MotionVLA achieves improved
   long-horizon manipulation with smoother and more direct executions.
 bibtex: |
-  @misc{yuan2026motionvlainjectinggeometricmotion,
+  @inproceedings{yuan2026motionvla,
         title={MotionVLA: Injecting Geometric Motion into Vision-Language-Action Model},
-        author={Shanglin Yuan and Weiheng Zhao and Xianda Guo and Wei Sui and Li Yu and Wenyu Liu and Xinggang Wang},
-        year={2026},
-        eprint={2606.08288},
-        archivePrefix={arXiv},
-        primaryClass={cs.RO},
-        url={https://arxiv.org/abs/2606.08288},
+        author={Yuan, Shanglin and Zhao, Weiheng and Guo, Xianda and Sui, Wei and Yu, Li and Liu, Wenyu and Wang, Xinggang},
+        booktitle={Conference on Robot Learning (CoRL)},
+        year={2026}
   }
 ---

@@ -41,13 +41,10 @@ abstract: |
   perturbations it improves from 51.36% to 63.44% and 69.16% to 75.47%; and on real
   robots it averages 74.4% under unseen visual shifts versus 55.6% for Fast-WAM-Joint.
 bibtex: |
-  @misc{yuan2026dreamwamrgbfutureprediction,
+  @article{yuan2026dreamwam,
         title={DreamWAM: Beyond RGB Future Prediction for World Action Models},
-        author={Shanglin Yuan and Weiheng Zhao and Xin Shi and Haoyi Jiang and Xianda Guo and Liu Liu and Wenyu Liu and Wei Sui and Xinggang Wang},
-        year={2026},
-        eprint={2608.04996},
-        archivePrefix={arXiv},
-        primaryClass={cs.RO},
-        url={https://arxiv.org/abs/2608.04996},
+        author={Yuan, Shanglin and Zhao, Weiheng and Shi, Xin and Jiang, Haoyi and Guo, Xianda and Liu, Liu and Liu, Wenyu and Sui, Wei and Wang, Xinggang},
+        journal={arXiv preprint arXiv:2608.04996},
+        year={2026}
   }
 ---
